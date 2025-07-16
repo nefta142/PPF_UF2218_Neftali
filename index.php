@@ -18,6 +18,9 @@ $cars = simplexml_load_file($xmlPath);
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
+<!--Cerrar sesion y Ver quien esta logueado-->
+
+
 <div class="container py-5">
 <!--Mostramos Mensaje de eliminar coche -->
     <?php if (isset($_GET['msg'])): ?>
@@ -78,8 +81,11 @@ $cars = simplexml_load_file($xmlPath);
         <button type="submit" class="btn btn-primary mt-4">Insertar</button>
     </form>
     <?php endif; ?>
-
-    <h2 class="mb-3">Listado de Coches</h2>
+    <div class="d-flex justify-content-end mb-3">
+    <a href="buscar_coche.php" class="btn btn-primary">
+        Buscar coches por marca y modelo
+    </a>
+</div>
         <!-- Creación de la tabla-->
     <table id="tabla-coches" class="table table-striped table-bordered">
         <thead>
@@ -94,6 +100,7 @@ $cars = simplexml_load_file($xmlPath);
                 <?php if ($_SESSION['rol'] === 'administrador'): ?>
                 <th>Acción</th>
                 <?php endif; ?>
+
             </tr>
         </thead>
         <tbody>
@@ -119,9 +126,11 @@ $cars = simplexml_load_file($xmlPath);
                     <form action="modificar_coche.php" method="get">
                         <input type="hidden" name="matricula" value="<?= $coche['matricula'] ?>">
                         <button type="submit" class="btn btn-warning btn-sm">Modificar</button>
+                        
                     </form>
+                    
                 </td>
-                <?php endif; ?>
+                <?php endif; ?> 
             </tr>
             <?php endforeach; ?>
         </tbody>
