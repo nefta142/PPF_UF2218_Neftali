@@ -8,6 +8,15 @@ Esta es una Web donde podremos:
 
 ---
 
+# Información Básica 
+Para la comprobacion de funcionalidad hay dos usuarios creados los cuales son:
+- Admin con contraseña 123
+- Consultor con contraseña 1234
+
+Si desea comprobar su funcinabilidad puede usarlos sin problema. :-)
+
+---
+
 # Explicación técnica
 
 Dentro de la carpeta principal del proyecto encontrarás **7 archivos PHP** y dos **subcarpetas llamadas `files` `control`**.
