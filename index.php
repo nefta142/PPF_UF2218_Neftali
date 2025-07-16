@@ -18,17 +18,6 @@ $cars = simplexml_load_file($xmlPath);
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-<!--Cerrar sesion y Ver quien esta logueado-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-    <div class="container-fluid">
-        <span class="navbar-brand">Gestión de Coches</span>
-        <div class="d-flex ms-auto">
-            <span class="text-white me-3"> <?= $_SESSION['usuario'] ?> (<?= $_SESSION['rol'] ?>)</span>
-            <a href="login.php" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
-        </div>
-    </div>
-</nav>
-
 
 <div class="container py-5">
 <!--Mostramos Mensaje de eliminar coche -->
