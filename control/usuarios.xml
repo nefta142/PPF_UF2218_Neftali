@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usuarios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./usuarios.xsd">
+    <usuario>
+        <nombre>Admin</nombre>
+        <contraseña>123</contraseña>
+        <tipo>administrador</tipo>
+    </usuario>
+      <usuario>
+        <nombre>Consultor</nombre>
+        <contraseña>1234</contraseña>
+        <tipo>consultor</tipo>
+    </usuario>
+</usuarios>

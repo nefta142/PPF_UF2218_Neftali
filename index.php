@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+<?php
 $xmlPath = 'files/coches.xml';
 $cars = simplexml_load_file($xmlPath);
 ?>
@@ -29,6 +36,7 @@ $cars = simplexml_load_file($xmlPath);
             </div>
         <?php endif; ?>
     <?php endif; ?>
+    <?php if ($_SESSION['rol'] === 'administrador'): ?>
         <!--Formulario de inserción de nuevos coches-->
     <h2 class="mb-4">Insertar Nuevo Coche</h2>
     <form action="insertar_coche.php" method="post" class="bg-white p-4 shadow rounded mb-5">
@@ -69,6 +77,7 @@ $cars = simplexml_load_file($xmlPath);
         </div>
         <button type="submit" class="btn btn-primary mt-4">Insertar</button>
     </form>
+    <?php endif; ?>
 
     <h2 class="mb-3">Listado de Coches</h2>
         <!-- Creación de la tabla-->
@@ -82,7 +91,9 @@ $cars = simplexml_load_file($xmlPath);
                 <th>Color</th>
                 <th>Precio</th>
                 <th>Tipo de Venta</th>
+                <?php if ($_SESSION['rol'] === 'administrador'): ?>
                 <th>Acción</th>
+                <?php endif; ?>
             </tr>
         </thead>
         <tbody>
@@ -96,6 +107,7 @@ $cars = simplexml_load_file($xmlPath);
                 <td><?= $coche->color ?></td>
                 <td><?= $coche->precio ?></td>
                 <td><?= $coche->precio['venta'] ?></td>
+                <?php if ($_SESSION['rol'] === 'administrador'): ?>
                 <td class="d-flex gap-2">
                     <!-- Eliminar-->
                     <form action="eliminar_coche.php" method="post" onsubmit="return confirm('¿Estás seguro de eliminar este coche?');">
@@ -103,11 +115,13 @@ $cars = simplexml_load_file($xmlPath);
                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                     </form>
                      <!-- Botón Modificar -->
+                      
                     <form action="modificar_coche.php" method="get">
                         <input type="hidden" name="matricula" value="<?= $coche['matricula'] ?>">
                         <button type="submit" class="btn btn-warning btn-sm">Modificar</button>
                     </form>
                 </td>
+                <?php endif; ?>
             </tr>
             <?php endforeach; ?>
         </tbody>
