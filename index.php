@@ -24,7 +24,7 @@ $cars = simplexml_load_file($xmlPath);
         <span class="navbar-brand">Gestión de Coches</span>
         <div class="d-flex ms-auto">
             <span class="text-white me-3"> <?= $_SESSION['usuario'] ?> (<?= $_SESSION['rol'] ?>)</span>
-            <a href="login.php" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+            <a href="logout.php" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
         </div>
     </div>
 </nav>
